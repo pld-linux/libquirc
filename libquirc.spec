@@ -6,13 +6,13 @@
 Summary:	Library for extracting and decoding QR codes
 Summary(pl.UTF-8):	Biblioteka do wydobywania i dekodowania kodów QR
 Name:		libquirc
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	ISC
 Group:		Libraries
-#Source0Download: https://github.com/evolation/libquirc/releases
+#Source0Download: https://github.com/evolation/libquirc/tags
 Source0:	https://github.com/evolation/libquirc/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	434431d3c49cd1462c17d386192ea72c
+# Source0-md5:	df67eaa474850cb7a0f7acd404a38417
 Patch0:		%{name}-make.patch
 URL:		https://github.com/evolation/libquirc
 %if %{with sdl}
@@ -72,8 +72,6 @@ Narzędzia do kodów QR wykorzystujące bibliotekę quirc.
 %prep
 %setup -q
 %patch0 -p1
-
-#%{__sed} -i -e 's/-shared /-shared -Wl,-soname,libquirc.so.1.0 /' Makefile
 
 %build
 %{__make} libquirc.so %{?with_static_libs:libquirc.a} %{?with_sdl:quirc-demo quirc-scanner} \
