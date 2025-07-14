@@ -71,7 +71,7 @@ Narzędzia do kodów QR wykorzystujące bibliotekę quirc.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} libquirc.so %{?with_static_libs:libquirc.a} %{?with_sdl:quirc-demo quirc-scanner} \
